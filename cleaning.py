@@ -16,6 +16,10 @@ def clean(file: str, newfile: str=None, convert: bool=False):
         if convert:
             convert_mp3_to_wav(src, dst)
 
+            # save text
+            with open(f"text/{row['path'].replace('.mp3', '.txt')}", "w") as f:
+                f.write(row["sentence"])
+
         csv.append(
             {
                 "id": row["path"].replace(".mp3", ""),
@@ -37,6 +41,7 @@ def convert_mp3_to_wav(
 
 if __name__ == "__main__":
     os.makedirs("audio", exist_ok=True)
+    os.makedirs("text", exist_ok=True)
 
     clean("validated.tsv", "all.csv", False)
     clean("train.tsv")
