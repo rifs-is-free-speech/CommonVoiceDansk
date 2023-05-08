@@ -16,9 +16,6 @@ def clean(file: str, newfile: str=None, convert: bool=False):
         if convert:
             convert_mp3_to_wav(src, dst)
 
-            # save text
-            with open(f"text/{row['path'].replace('.mp3', '.txt')}", "w") as f:
-                f.write(row["sentence"])
 
         csv.append(
             {
