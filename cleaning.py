@@ -39,7 +39,7 @@ def convert_mp3_to_wav(
 if __name__ == "__main__":
     os.makedirs("audio", exist_ok=True)
 
-    clean("validated.tsv", "all.csv", False)
+    clean("validated.tsv", "all.csv", True)
     clean("train.tsv")
     clean("dev.tsv")
     clean("test.tsv")
